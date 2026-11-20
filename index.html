@@ -58,7 +58,7 @@ a:hover{color:#8cc8ff}
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="#contact" style="display:flex;align-items:center;gap:10px;background:#3a9bf0;color:#fff;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;box-shadow:0 10px 30px -10px rgba(58,155,240,0.7);transition:transform .2s,box-shadow .2s,background .2s" style-hover="background:#5bb0ff;color:#fff;transform:translateY(-3px);box-shadow:0 16px 40px -10px rgba(58,155,240,0.9)">Contact me <span>→</span></a>
           <a href="#work" style="display:flex;align-items:center;gap:8px;color:#fff;padding:15px 22px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);font-weight:500;font-size:15px;transition:border-color .2s,background .2s" style-hover="border-color:#4aa8ff;background:rgba(74,168,255,0.08);color:#fff">See the work</a>
-          <a href="#" style="display:flex;align-items:center;gap:6px;color:#93a3bd;padding:15px 8px;font-size:15px" style-hover="color:#fff">Resume ↗</a>
+          <a href="Resume..docx.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:6px;color:#93a3bd;padding:15px 8px;font-size:15px" style-hover="color:#fff">Resume ↗</a>
         </div>
       </div>
     </div>
@@ -83,8 +83,8 @@ a:hover{color:#8cc8ff}
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,3vw,40px) 28px">
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
           <article data-reveal="1" style="display:flex;flex-direction:column;gap:18px;grid-column:{{ p.span }}">
-            <a href="#" style="display:block;position:relative;aspect-ratio:{{ p.ratio }};border-radius:18px;overflow:hidden;background:#0d1628;border:1px solid rgba(255,255,255,0.06);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(58,155,240,0.45)">
-              <image-slot id="{{ p.slot }}" shape="rect" placeholder="{{ p.ph }}"></image-slot>
+            <a href="{{ p.live }}" target="_blank" rel="noopener" style="display:block;position:relative;aspect-ratio:{{ p.ratio }};border-radius:18px;overflow:hidden;background:#0d1628;border:1px solid rgba(255,255,255,0.06);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(58,155,240,0.45)">
+              <img src="{{ p.img }}" alt="{{ p.title }} screenshot" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
             </a>
             <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px">
               <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
@@ -99,8 +99,8 @@ a:hover{color:#8cc8ff}
                   </sc-for>
                 </div>
                 <div style="display:flex;gap:16px;font-size:14px;font-weight:600">
-                  <a href="#" style="color:#4aa8ff" style-hover="color:#fff">Live demo ↗</a>
-                  <a href="#" style="color:#93a3bd" style-hover="color:#fff">GitHub ↗</a>
+                  <a href="{{ p.live }}" target="_blank" rel="noopener" style="color:#4aa8ff" style-hover="color:#fff">Live demo ↗</a>
+                  <a href="{{ p.github }}" target="_blank" rel="noopener" style="color:#93a3bd" style-hover="color:#fff">GitHub ↗</a>
                 </div>
               </div>
             </div>
@@ -114,7 +114,6 @@ a:hover{color:#8cc8ff}
       </div>
     </div>
   </section>
-
   <!-- ABOUT -->
   <section id="about" style="max-width:1240px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(20px,4vw,48px) clamp(64px,8vw,112px)">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
@@ -141,25 +140,26 @@ a:hover{color:#8cc8ff}
       <h2 data-reveal="1" style="margin:0;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:0.92;font-size:clamp(60px,11vw,160px);color:#fff">Got an idea?<br><span style="color:#4aa8ff">Let's talk.</span></h2>
       <p data-reveal="2" style="margin:0;max-width:480px;font-size:16px;line-height:1.6;color:#b5c2d8">I'm always interested in new opportunities, creative projects, and connecting with others in the development community.</p>
       <div data-reveal="3" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
-        <a href="{{ mailto }}" style="display:flex;align-items:center;gap:10px;background:#3a9bf0;color:#fff;padding:18px 32px;border-radius:999px;font-weight:600;font-size:17px;box-shadow:0 14px 40px -12px rgba(58,155,240,0.8);transition:transform .2s,background .2s" style-hover="background:#5bb0ff;color:#fff;transform:translateY(-3px) scale(1.02)">Email me <span>↗</span></a>
+        <a href="#" data-contact style="display:flex;align-items:center;gap:10px;background:#3a9bf0;color:#fff;padding:18px 32px;border-radius:999px;font-weight:600;font-size:17px;box-shadow:0 14px 40px -12px rgba(58,155,240,0.8);transition:transform .2s,background .2s" style-hover="background:#5bb0ff;color:#fff;transform:translateY(-3px) scale(1.02)">Email me <span>↗</span></a>
         <button onClick="{{ copyEmail }}" style="display:flex;align-items:center;gap:10px;background:transparent;color:#fff;padding:18px 26px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);font:500 15px 'DM Sans',sans-serif;cursor:pointer;transition:border-color .2s,background .2s" style-hover="border-color:#4aa8ff;background:rgba(74,168,255,0.08)">{{ copyLabel }}</button>
       </div>
       <div data-reveal="4" style="display:flex;gap:24px;font-size:14px;font-weight:500">
-        <a href="#" style="color:#93a3bd" style-hover="color:#fff">GitHub ↗</a>
-        <a href="#" style="color:#93a3bd" style-hover="color:#fff">LinkedIn ↗</a>
-      </div>
+  <a href="https://github.com/Jantioho26" target="_blank" rel="noopener" style="color:#93a3bd" style-hover="color:#fff">GitHub ↗</a>
+  <a href="https://www.linkedin.com/in/joy-antioho-306844437/" target="_blank" rel="noopener" style="color:#93a3bd" style-hover="color:#fff">LinkedIn ↗</a>
+</div>
     </div>
   </section>
 
   <!-- FOOTER -->
+ <!-- FOOTER -->
   <footer style="max-width:1240px;margin:0 auto;padding:0 clamp(12px,2vw,24px) 24px">
     <div style="background:#111c31;border:1px solid rgba(255,255,255,0.06);border-radius:28px;padding:clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
       <div style="display:flex;align-items:center;gap:16px;font-family:'Anton',sans-serif;font-size:clamp(56px,10vw,128px);line-height:0.85;color:#fff">
         <span style="width:0.42em;height:0.42em;border-radius:50%;background:radial-gradient(circle at 35% 35%,#5bb0ff,#1d6fd1)"></span>PORTFOLIO.
       </div>
       <div style="display:flex;gap:48px;font-size:14px">
-        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;letter-spacing:0.14em;color:#6f80a0;text-transform:uppercase">Site</span><a href="#work" style="color:#c3cee0">Work</a><a href="#about" style="color:#c3cee0">About</a><a href="#contact" style="color:#c3cee0">Contact</a></div>
-        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;letter-spacing:0.14em;color:#6f80a0;text-transform:uppercase">Social</span><a href="#" style="color:#c3cee0">GitHub</a><a href="#" style="color:#c3cee0">LinkedIn</a><a href="{{ mailto }}" style="color:#c3cee0">Email</a></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;letter-spacing:0.14em;color:#6f80a0;text-transform:uppercase">Site</span><a href="#work" style="color:#c3cee0">Work</a><a href="#about" style="color:#c3cee0">About</a><a href="#" data-contact style="color:#c3cee0">Contact</a></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:10px;letter-spacing:0.14em;color:#6f80a0;text-transform:uppercase">Social</span><a href="https://github.com/Jantioho26" target="_blank" rel="noopener" style="color:#c3cee0">GitHub</a><a href="https://www.linkedin.com/in/joy-antioho-306844437/" target="_blank" rel="noopener" style="color:#c3cee0">LinkedIn</a><a href="#" data-contact style="color:#c3cee0">Email</a></div>
       </div>
     </div>
   </footer>
@@ -171,7 +171,7 @@ a:hover{color:#8cc8ff}
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hello@yourname.dev&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;floatingCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;joyantioho@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;floatingCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { scrolled: false, copied: false };
   orbRef = React.createRef();
@@ -227,13 +227,33 @@ class Component extends DCLogic {
   renderVals() {
     const email = this.props.email ?? 'joyantioho@gmail.com';
     const skills = ['React','JavaScript','HTML','CSS','Tailwind CSS','Git','GitHub','Firebase','API Integration','Next.js','Redux','Node.js','Express','Vite','Vercel'];
-    const projects = [
-      { title: 'Lakeshore Lens Co.', kind: 'Featured project', slot: 'proj-lakeshore', ph: 'Lakeshore Lens Co. screenshot', desc: 'A responsive camera lens rental website featuring searchable listings, dynamic filtering and sorting, individual lens detail pages, and an interactive photography gallery.', tags: ['React','JavaScript','CSS','API Integration'] },
-      { title: 'Skinstric AI', kind: 'Featured project', slot: 'proj-skinstric', ph: 'Skinstric AI screenshot', desc: 'An interactive AI-powered skin analysis experience featuring image uploads, API integration, dynamic demographic results, and a responsive interface with custom animations.', tags: ['React','JavaScript','Tailwind CSS','API Integration'] },
-      { title: 'Summarist Clone', kind: 'Featured project', slot: 'proj-summarist', ph: 'Summarist screenshot', desc: 'A responsive book summary application featuring user authentication, book discovery, and an interactive reading experience. Built with React and Firebase to create a modern, user-friendly interface.', tags: ['React','JavaScript','Firebase','CSS'] },
-      { title: 'Netflix Clone', kind: 'Featured project', slot: 'proj-netflix', ph: 'Netflix Clone screenshot', desc: 'A responsive streaming platform interface inspired by Netflix, featuring movie browsing, interactive trailers, and a modern, user-friendly design. Built with React to recreate a familiar streaming experience.', tags: ['React','JavaScript','CSS','API Integration'] },
-      { title: 'NFT Marketplace', kind: 'Internship project', slot: 'proj-nft', ph: 'NFT Marketplace screenshot', desc: 'A collaborative NFT marketplace project developed during a frontend development internship. Contributed reusable React components, dynamic NFT collections, API integration, and interactive carousel features while collaborating with a development team using GitHub and pull requests.', tags: ['React','JavaScript','API Integration','GitHub','Team Collaboration'] },
-    ].map((p, i, a) => {
+   const projects = [
+  { title: 'Lakeshore Lens Co.', kind: 'Featured project',
+    img: 'images/lakeshore.jpeg', live: 'https://lakeshore-lens-react.vercel.app/', github: 'https://github.com/Jantioho26/Lakeshore-lens-react',
+    slot: 'proj-lakeshore', ph: 'Lakeshore Lens Co. screenshot',
+    desc: 'A responsive camera lens rental website featuring searchable listings, dynamic filtering and sorting, individual lens detail pages, and an interactive photography gallery.',
+    tags: ['React','JavaScript','CSS','API Integration'] },
+  { title: 'Skinstric AI', kind: 'Featured project',
+    img: 'images/skinstric.jpeg', live: 'https://skinstric-ai-alpha.vercel.app/', github: 'https://github.com/Jantioho26/skinstric-AI',
+    slot: 'proj-skinstric', ph: 'Skinstric AI screenshot',
+    desc: 'An interactive AI-powered skin analysis experience featuring image uploads, API integration, dynamic demographic results, and a responsive interface with custom animations.',
+    tags: ['React','JavaScript','Tailwind CSS','API Integration'] },
+  { title: 'Summarist Clone', kind: 'Featured project',
+    img: 'images/summarist.jpeg', live: 'https://summarist-clone-nu.vercel.app/', github: 'https://github.com/Jantioho26/summarist-clone',
+    slot: 'proj-summarist', ph: 'Summarist screenshot',
+    desc: 'A responsive book summary application featuring user authentication, book discovery, and an interactive reading experience. Built with React and Firebase to create a modern, user-friendly interface.',
+    tags: ['React','JavaScript','Firebase','CSS'] },
+  { title: 'Netflix Clone', kind: 'Featured project',
+    img: 'images/netflix.jpeg', live: 'https://neftlix-clone-ten.vercel.app/', github: 'https://github.com/Jantioho26/netflix-clone',
+    slot: 'proj-netflix', ph: 'Netflix Clone screenshot',
+    desc: 'A responsive streaming platform interface inspired by Netflix, featuring movie browsing, interactive trailers, and a modern, user-friendly design. Built with React to recreate a familiar streaming experience.',
+    tags: ['React','JavaScript','CSS','API Integration'] },
+  { title: 'NFT Marketplace', kind: 'Internship project',
+    img: 'images/nft.jpeg', live: 'https://joy-nft-marketplace.vercel.app/', github: 'https://github.com/Jantioho26/joy-internship',
+    slot: 'proj-nft', ph: 'NFT Marketplace screenshot',
+    desc: 'A collaborative NFT marketplace project developed during a frontend development internship. Contributed reusable React components, dynamic NFT collections, API integration, and interactive carousel features while collaborating with a development team using GitHub and pull requests.',
+    tags: ['React','JavaScript','API Integration','GitHub','Team Collaboration'] },
+].map((p, i, a) => {
       const wide = i === a.length - 1 && a.length % 2 === 1;
       return { ...p, span: wide ? '1 / -1' : 'auto', ratio: wide ? '21 / 9' : '16 / 10' };
     });
@@ -253,5 +273,138 @@ class Component extends DCLogic {
   }
 }
 </script>
+<!-- ========== CONTACT MODAL: paste just before </body> ========== -->
+<style>
+  .cm-overlay{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;
+    background:rgba(5,10,20,.72);backdrop-filter:blur(6px);
+    opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+  .cm-overlay.open{opacity:1;visibility:visible}
+  .cm-modal{position:relative;width:100%;max-width:460px;padding:28px;border-radius:20px;
+    background:#0f1a2e;border:1px solid rgba(255,255,255,.08);color:#e8eefc;
+    font-family:inherit;box-shadow:0 30px 80px rgba(0,0,0,.5);
+    transform:translateY(16px) scale(.98);transition:transform .25s}
+  .cm-overlay.open .cm-modal{transform:none}
+  .cm-modal h2{margin:0 0 6px;font-size:1.5rem;letter-spacing:.01em}
+  .cm-modal p.cm-sub{margin:0 0 20px;opacity:.65;font-size:.9rem}
+  .cm-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+    border:0;background:rgba(255,255,255,.06);color:inherit;font-size:18px;cursor:pointer}
+  .cm-close:hover{background:rgba(255,255,255,.12)}
+  .cm-field{display:block;margin-bottom:14px}
+  .cm-field span{display:block;margin-bottom:6px;font-size:.78rem;opacity:.7}
+  .cm-field input,.cm-field textarea{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:inherit;font:inherit}
+  .cm-field input:focus,.cm-field textarea:focus{outline:2px solid #3b9eff;outline-offset:1px}
+  .cm-field textarea{min-height:110px;resize:vertical}
+  .cm-send{width:100%;padding:13px;border:0;border-radius:999px;background:#3b9eff;color:#fff;
+    font:inherit;font-weight:600;cursor:pointer;transition:filter .2s}
+  .cm-send:hover{filter:brightness(1.1)}
+  .cm-send:disabled{opacity:.6;cursor:wait}
+  .cm-status{min-height:1.2em;margin:12px 0 0;font-size:.85rem;text-align:center}
+  .cm-hp{position:absolute;left:-9999px}
+</style>
+
+<div class="cm-overlay" id="cmOverlay" aria-hidden="true">
+  <div class="cm-modal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+    <button class="cm-close" type="button" aria-label="Close">&times;</button>
+    <h2 id="cmTitle">Let’s talk</h2>
+    <p class="cm-sub">Tell me a bit about your project and I’ll get back to you soon.</p>
+    <form id="cmForm" novalidate>
+      <input class="cm-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+      <label class="cm-field"><span>Name</span><input name="name" required autocomplete="name"></label>
+      <label class="cm-field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+      <label class="cm-field"><span>Message</span><textarea name="message" required></textarea></label>
+      <button class="cm-send" type="submit">Send message</button>
+      <p class="cm-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(() => {
+  /* ---- 1. CONFIGURE THESE ---- */
+  const MY_EMAIL = 'joyantioho@gmail.com';
+  const EMAILJS = {
+    serviceId: 'service_4z9q878',    // from EmailJS > Email Services
+    templateId: 'template_jj7folj',  // from EmailJS > Email Templates
+    publicKey: 'tq5yOef37QZrOgoN3'     // from EmailJS > Account
+  };
+
+  /* ---- 2. Which buttons open the modal ---- */
+  const TRIGGER_TEXT = /^(contact me|let['’]s talk|start a conversation)/i;
+
+  const overlay = document.getElementById('cmOverlay');
+  const form = document.getElementById('cmForm');
+  const status = form.querySelector('.cm-status');
+  const sendBtn = form.querySelector('.cm-send');
+  let lastFocus = null;
+
+  const open = () => {
+    lastFocus = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => form.elements.name.focus(), 50);
+  };
+  const close = () => {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lastFocus && lastFocus.focus();
+  };
+
+  document.addEventListener('click', (e) => {
+    if (overlay.contains(e.target)) return;
+    const el = e.target.closest('a, button, [data-contact]');
+    if (!el) return;
+    if (el.hasAttribute('data-contact') || TRIGGER_TEXT.test(el.textContent.trim())) {
+      e.preventDefault();
+      open();
+    }
+  });
+
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  overlay.querySelector('.cm-close').addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    if (data._gotcha) return;
+    if (!data.name.trim() || !/^\S+@\S+\.\S+$/.test(data.email) || !data.message.trim()) {
+      status.style.color = '#ff8a8a';
+      status.textContent = 'Please fill in all fields with a valid email.';
+      return;
+    }
+    sendBtn.disabled = true;
+    status.style.color = '';
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: EMAILJS.serviceId,
+          template_id: EMAILJS.templateId,
+          user_id: EMAILJS.publicKey,
+          template_params: { name: data.name, email: data.email, message: data.message }
+        })
+      });
+      if (!res.ok) throw new Error();
+      form.reset();
+      status.style.color = '#6ee7a8';
+      status.textContent = 'Thanks! Your message was sent.';
+      setTimeout(close, 1800);
+    } catch {
+      status.style.color = '#ff8a8a';
+      status.textContent = 'Something went wrong. Please email me directly at ' + MY_EMAIL;
+    } finally {
+      sendBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+<!-- ========== END CONTACT MODAL ========== -->
 </body>
 </html>
