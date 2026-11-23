@@ -78,7 +78,7 @@ a:hover{color:#8cc8ff}
     <div style="background:#111c31;border:1px solid rgba(255,255,255,0.06);border-radius:28px;padding:clamp(28px,5vw,64px) clamp(18px,4vw,48px)">
       <div data-reveal="0" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;margin-bottom:clamp(36px,5vw,56px)">
         <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,6vw,76px);line-height:1;text-transform:uppercase;color:#fff">Selected work</h2>
-        <p style="margin:0;max-width:520px;color:#93a3bd;font-size:15px;line-height:1.6">A collection of projects where I've combined created design, modern technologies, and interactive user experiences.</p>
+        <p style="margin:0;max-width:520px;color:#93a3bd;font-size:15px;line-height:1.6">A collection of projects where I've combined creative design, modern technologies, and interactive user experiences.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,3vw,40px) 28px">
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
@@ -228,26 +228,33 @@ class Component extends DCLogic {
     const email = this.props.email ?? 'joyantioho@gmail.com';
     const skills = ['React','JavaScript','HTML','CSS','Tailwind CSS','Git','GitHub','Firebase','API Integration','Next.js','Redux','Node.js','Express','Vite','Vercel'];
    const projects = [
-  { title: 'Lakeshore Lens Co.', kind: 'Featured project',
-    img: 'images/lakeshore.jpeg', live: 'https://lakeshore-lens-react.vercel.app/', github: 'https://github.com/Jantioho26/Lakeshore-lens-react',
-    slot: 'proj-lakeshore', ph: 'Lakeshore Lens Co. screenshot',
-    desc: 'A responsive camera lens rental website featuring searchable listings, dynamic filtering and sorting, individual lens detail pages, and an interactive photography gallery.',
-    tags: ['React','JavaScript','CSS','API Integration'] },
+   {
+  title: 'Sunset Properties',
+  kind: 'Featured project',
+  img: 'images/sunset-properties.jpg',
+  live: 'https://sunset-properties-phi.vercel.app/',
+  github: 'https://github.com/Jantioho26/sunset-properties',
+  slot: 'proj-sunset',
+  ph: 'Sunset Properties website screenshot',
+  desc: 'A responsive vacation rental website built with React and Vite, featuring dynamic property listings, interactive booking and checkout flows, and a custom mobile-friendly interface designed for a seamless guest experience.',
+  tags: ['React', 'JavaScript', 'Vite', 'CSS', 'Responsive Design']
+},
   { title: 'Skinstric AI', kind: 'Featured project',
     img: 'images/skinstric.jpeg', live: 'https://skinstric-ai-alpha.vercel.app/', github: 'https://github.com/Jantioho26/skinstric-AI',
     slot: 'proj-skinstric', ph: 'Skinstric AI screenshot',
     desc: 'An interactive AI-powered skin analysis experience featuring image uploads, API integration, dynamic demographic results, and a responsive interface with custom animations.',
     tags: ['React','JavaScript','Tailwind CSS','API Integration'] },
+     { title: 'Lakeshore Lens Co.', kind: 'Featured project',
+    img: 'images/lakeshore.jpeg', live: 'https://lakeshore-lens-react.vercel.app/', github: 'https://github.com/Jantioho26/Lakeshore-lens-react',
+    slot: 'proj-lakeshore', ph: 'Lakeshore Lens Co. screenshot',
+    desc: 'A responsive camera lens rental website featuring searchable listings, dynamic filtering and sorting, individual lens detail pages, and an interactive photography gallery.',
+    tags: ['React','JavaScript','CSS','API Integration'] },
   { title: 'Summarist Clone', kind: 'Featured project',
     img: 'images/summarist.jpeg', live: 'https://summarist-clone-nu.vercel.app/', github: 'https://github.com/Jantioho26/summarist-clone',
     slot: 'proj-summarist', ph: 'Summarist screenshot',
     desc: 'A responsive book summary application featuring user authentication, book discovery, and an interactive reading experience. Built with React and Firebase to create a modern, user-friendly interface.',
     tags: ['React','JavaScript','Firebase','CSS'] },
-  { title: 'Netflix Clone', kind: 'Featured project',
-    img: 'images/netflix.jpeg', live: 'https://neftlix-clone-ten.vercel.app/', github: 'https://github.com/Jantioho26/netflix-clone',
-    slot: 'proj-netflix', ph: 'Netflix Clone screenshot',
-    desc: 'A responsive streaming platform interface inspired by Netflix, featuring movie browsing, interactive trailers, and a modern, user-friendly design. Built with React to recreate a familiar streaming experience.',
-    tags: ['React','JavaScript','CSS','API Integration'] },
+
   { title: 'NFT Marketplace', kind: 'Internship project',
     img: 'images/nft.jpeg', live: 'https://joy-nft-marketplace.vercel.app/', github: 'https://github.com/Jantioho26/joy-internship',
     slot: 'proj-nft', ph: 'NFT Marketplace screenshot',
